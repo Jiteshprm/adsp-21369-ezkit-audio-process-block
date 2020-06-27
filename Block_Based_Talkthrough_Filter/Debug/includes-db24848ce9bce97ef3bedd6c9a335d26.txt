@@ -1,0 +1,1 @@
+-iC:/Analog Devices/ADSP-21369_EZKIT-Rel1.0.0/21369_EZ-KIT_Lite/Examples/Block_Based_Talkthrough/system

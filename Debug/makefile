@@ -85,21 +85,21 @@ CPP_DEPS := $(subst \ ,@, $(CPP_DEPS))
 CPP_DEPS := $(foreach var, $(CPP_DEPS), "$(subst @, ,$(var))")
 
 # All Target
-all: Block_Based_Talkthrough.dxe
+all: adsp-21369-ezkit-audio-process-block.dxe
 
 # Tool invocations
-Block_Based_Talkthrough.dxe: $(LDF_SRCS) $(SRC_OBJS)
+adsp-21369-ezkit-audio-process-block.dxe: $(LDF_SRCS) $(SRC_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: CrossCore SHARC Linker'
-	cc21k -proc ADSP-21369 -si-revision any -TC:/Analog\ Devices/ADSP-21369_EZKIT-Rel1.0.0/21369_EZ-KIT_Lite/Examples/Block_Based_Talkthrough/system/startup_ldf/app.ldf -no-mem -LC:/Analog\ Devices/ADSP-21369_EZKIT-Rel1.0.0/21369_EZ-KIT_Lite/Examples/Block_Based_Talkthrough/Debug/system/startup_ldf -flags-link -MDDEBUG,-MDCORE0 -add-debug-libpaths -o Block_Based_Talkthrough.dxe @input-file.txt  -flags-link -od,.\.
+	cc21k -proc ADSP-21369 -si-revision any -TC:/Users/jiteshpramodray/git/adsp-21369-ezkit-audio-process-block/system/startup_ldf/app.ldf -no-mem -LC:/Users/jiteshpramodray/git/adsp-21369-ezkit-audio-process-block/Debug/system/startup_ldf -flags-link -MDDEBUG,-MDCORE0 -add-debug-libpaths -o adsp-21369-ezkit-audio-process-block.dxe @input-file.txt  -flags-link -od,.\.
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-linker_log.xml: Block_Based_Talkthrough.dxe $(LDF_SRCS) $(SRC_OBJS)
+linker_log.xml: adsp-21369-ezkit-audio-process-block.dxe $(LDF_SRCS) $(SRC_OBJS)
 
 # Other Targets
 clean:
-	-$(RM) $(DXE)$(DSP_DEPS)$(CC_DEPS)$(LINKER_LOG_OUTPUTS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(ASM_DEPS)$(S_DEPS)$(C_DEPS)$(CPP_DEPS) Block_Based_Talkthrough.dxe
+	-$(RM) $(DXE)$(DSP_DEPS)$(CC_DEPS)$(LINKER_LOG_OUTPUTS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(ASM_DEPS)$(S_DEPS)$(C_DEPS)$(CPP_DEPS) adsp-21369-ezkit-audio-process-block.dxe
 	-@echo ' '
 
 .PHONY: all clean dependents

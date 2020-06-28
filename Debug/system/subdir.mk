@@ -17,7 +17,7 @@ C_DEPS += \
 system/adi_initialize.doj: ../system/adi_initialize.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="Block_Based_Talkthrough" -proc ADSP-21369 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -DCORE0 @includes-44deb958dd19918f3c8d4add2d6f81b4.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -gnu-style-dependencies -MD -Mo "system/adi_initialize.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="adsp-21369-ezkit-audio-process-block" -proc ADSP-21369 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -DCORE0 @includes-ed8b5e3b8cf81530e704911d16916579.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -gnu-style-dependencies -MD -Mo "system/adi_initialize.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

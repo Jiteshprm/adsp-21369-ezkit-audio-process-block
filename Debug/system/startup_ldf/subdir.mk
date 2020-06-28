@@ -30,21 +30,21 @@ C_DEPS += \
 system/startup_ldf/app_IVT.doj: ../system/startup_ldf/app_IVT.s
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC Assembler'
-	easm21k -file-attr ProjectName="Block_Based_Talkthrough" -proc ADSP-21369 -si-revision any -g -D_DEBUG -DCORE0 @includes-db24848ce9bce97ef3bedd6c9a335d26.txt -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_IVT.d" -o "$@" "$<"
+	easm21k -file-attr ProjectName="adsp-21369-ezkit-audio-process-block" -proc ADSP-21369 -si-revision any -g -D_DEBUG -DCORE0 @includes-d40008515ed11edccaf071ee6c7c81f9.txt -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_IVT.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 system/startup_ldf/app_heaptab.doj: ../system/startup_ldf/app_heaptab.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="Block_Based_Talkthrough" -proc ADSP-21369 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -DCORE0 @includes-44deb958dd19918f3c8d4add2d6f81b4.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -gnu-style-dependencies -MD -Mo "system/startup_ldf/app_heaptab.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="adsp-21369-ezkit-audio-process-block" -proc ADSP-21369 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -DCORE0 @includes-ed8b5e3b8cf81530e704911d16916579.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -gnu-style-dependencies -MD -Mo "system/startup_ldf/app_heaptab.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 system/startup_ldf/app_startup.doj: ../system/startup_ldf/app_startup.s
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC Assembler'
-	easm21k -file-attr ProjectName="Block_Based_Talkthrough" -proc ADSP-21369 -si-revision any -g -D_DEBUG -DCORE0 @includes-db24848ce9bce97ef3bedd6c9a335d26.txt -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_startup.d" -o "$@" "$<"
+	easm21k -file-attr ProjectName="adsp-21369-ezkit-audio-process-block" -proc ADSP-21369 -si-revision any -g -D_DEBUG -DCORE0 @includes-d40008515ed11edccaf071ee6c7c81f9.txt -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_startup.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -16,17 +16,18 @@
  */
 
 #include "ADDS_21369_EzKit.h"
-
+#include "audio_processing.h"
 
 int main(void)
 {
-
+	unsigned int count1=1234;
 	int count=0;
 	/* Initialize managed drivers and/or services at the start of main(). */
 	adi_initComponents();
 
     /*Initialize PLL to run at CCLK= 331.776 MHz & SDCLK= 165.888 MHz.
       SDRAM is setup for use, but cannot be accessed until MSEN bit is enabled*/
+	init_uart_before_pll();
     initPLL();
     initExternalMemory();
     /* Setting up IRQ0 and IRQ1*/
@@ -38,7 +39,8 @@ int main(void)
     /* This function will configure the codec on the kit*/
     Init1835viaSPI();
 
-
+    init_audio_processing();
+    init_uart();
     adi_int_InstallHandler(ADI_CID_P6I,(ADI_INT_HANDLER_PTR )TalkThroughISR,0,true);
 
     adi_int_InstallHandler(ADI_CID_IRQ0I,(ADI_INT_HANDLER_PTR )Irq0ISR,0,true);
@@ -48,6 +50,18 @@ int main(void)
 
     InitSPORT();
 
+//    unsigned int x = 0x76543210;
+//    char *c = (char*) &x;
+//
+//    printf ("*c is: 0x%x\n", *c);
+//    if (*c == 0x10)
+//    {
+//      printf ("Underlying architecture is little endian. \n");
+//    }
+//    else
+//    {
+//       printf ("Underlying architecture is big endian. \n");
+//    }
     /* Be in infinite loop and do nothing until done.*/
 
     while(1)
@@ -55,9 +69,26 @@ int main(void)
 
 		if(blockReady)
 		{
-			if(count==10)
+			if(count==1000)
 					{
-						puts("Talkthrough is running successfully");
+						//puts("Talkthrough is running successfully");
+						char welcomemessage[] = {"\n\rTalkthrough is running successfully\n\r"};
+						xmitUARTmessage(welcomemessage,strlen(welcomemessage)*sizeof(char));
+
+						int i,j;
+						char sample[10];
+						//char *msg= (char*)calloc(NUM_SAMPLES*10, sizeof(char));
+					    for(i=0, j=0;i<NUM_SAMPLES;i+=2)
+					    {
+					    	sprintf(sample, "-%08x", src_pointer[int_cntr][i]);
+					    	xmitUARTmessage(sample,strlen(sample)*sizeof(char));
+					    	//strncat(msg, sample, strlen(sample)*sizeof(char));
+					    }
+					    //char msg[] = {"\n\r ------- \n\r"};
+					    //xmitUARTmessage(msg,strlen(msg)*sizeof(char));
+					    //strcat(msg, "\n\r\0");
+					    //xmitUARTmessage(sample,strlen(sample)*sizeof(char));
+					   count=0;
 					}
 			processBlock(src_pointer[int_cntr]);
 			count++;

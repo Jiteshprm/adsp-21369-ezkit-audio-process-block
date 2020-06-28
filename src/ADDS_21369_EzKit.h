@@ -62,4 +62,9 @@ extern volatile int blockReady;
 extern unsigned int *src_pointer[3];
 extern volatile int int_cntr;
 
+extern  void init_uart_before_pll();
+
+extern  void init_uart();
+
+extern void xmitUARTmessage(char*, int); /* function to transmit the welcome message*/
 #endif

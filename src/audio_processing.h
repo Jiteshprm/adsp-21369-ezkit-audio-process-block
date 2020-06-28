@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-void init_audio_processing(void);
+extern void init_audio_processing(void);
 
-void audio_processing(int32_t audio_buffer[], int num_chans);
+extern void audio_processing(unsigned int *block_ptr, int num_chans);
 
 #endif // _AUDIO_PROCESSING

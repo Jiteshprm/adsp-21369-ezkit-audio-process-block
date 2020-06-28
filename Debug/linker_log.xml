@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.9.2/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Sun Jun 28 01:36:46 2020
+'>
+<MSG id='03173D98' mid='li1021' type='Error' >
+<TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
+        'xmitUARTmessage [_xmitUARTmessage]' referenced from 'src\main.doj']]></TEXT>
+</MSG>
+</DOCUMENT>

@@ -35,11 +35,13 @@ static int32_t lp_coeffs[5] = {
 };
 
 // 2 second order sections
-const int num_sos = 2;
+#define num_sos 2
 // 4 states per second order section
-const int num_states = 4;
+#define num_states 4
 static int32_t hp_states[num_sos][num_states];
 static int32_t lp_states[num_sos][num_states];
+int32_t left_data ;
+int32_t right_data ;
 
 //------------------------------------------------------------------------------
 
@@ -77,15 +79,47 @@ void init_audio_processing(void)
 
 //------------------------------------------------------------------------------
 
-void audio_processing(int32_t audio_buffer[], int num_chans)
+inline int32_t passthough(int32_t in, int32_t coeff[], int32_t mem[])
+{
+
+	return in;
+}
+inline int32_t passthough2(int32_t in, int32_t coeff[], int32_t mem[])
+{
+
+	return in/2;
+}
+
+/* C function implementing the simplest lowpass:
+ *
+ *      y(n) = x(n) + x(n-1)
+ *
+ */
+//double simplp (int32_t *x, int32_t *y,
+//               int M, double xm1)
+//{
+//  int n;
+//  y[0] = x[0] + xm1;
+//  for (n=1; n < M ; n++) {
+//    y[n] =  x[n]  + x[n-1];
+//  }
+//  return x[M-1];
+//}
+void audio_processing(unsigned int *block_ptr, int num_chans)
 {
     // 4th order Linkwitz-Riley highpass (left)
-    audio_buffer[0] = iir32_sos(audio_buffer[0], hp_coeffs, hp_states[0]);
-    audio_buffer[0] = iir32_sos(audio_buffer[0], hp_coeffs, hp_states[1]);
+	left_data = *(block_ptr) << 8;
+	right_data = *(block_ptr+1) << 8;
+
+	left_data = iir32_sos(left_data, hp_coeffs, hp_states[0]);
+    left_data = iir32_sos(left_data, hp_coeffs, hp_states[1]);
 
     // 4th order Linkwitz-Riley lowpass (right)
-    audio_buffer[1] = iir32_sos(audio_buffer[1], lp_coeffs, lp_states[0]);
-    audio_buffer[1] = iir32_sos(audio_buffer[1], lp_coeffs, lp_states[1]);
+	right_data = iir32_sos(right_data, lp_coeffs, lp_states[0]);
+    right_data = iir32_sos(right_data, lp_coeffs, lp_states[1]);
+
+	*(block_ptr) = left_data >> 8;
+	*(block_ptr+1) = right_data >> 8;
 }
 
 //------------------------------------------------------------------------------

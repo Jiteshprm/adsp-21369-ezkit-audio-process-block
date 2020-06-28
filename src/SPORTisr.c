@@ -60,8 +60,8 @@ void ProcessingTooLong(void)
 
 void TalkThroughISR(uint32_t iid, void *handlerarg) /* No argument is passed in this ISR */
 {
-    if(isProcessing)
-        ProcessingTooLong();
+//    if(isProcessing)
+//        ProcessingTooLong();
 
     /*Increment the block pointer*/
     int_cntr++;

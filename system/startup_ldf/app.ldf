@@ -119,7 +119,8 @@ MEMORY
    /*$VDSG<insert-new-memory-segments>                          */
    /* Text inserted between these $VDSG comments will be preserved */
    /*$VDSG<insert-new-memory-segments>                          */
-   
+   seg_sram  { TYPE(DM RAM) START(0x00200000) END(0x0021FFFF) WIDTH(32)}
+   seg_sdram { TYPE(DM RAM) START(0x08000000) END(0x083FFFFF) WIDTH(32)}
 } /* MEMORY */
 
 PROCESSOR p0
@@ -414,6 +415,17 @@ PROCESSOR p0
          
       } > mem_block2_pm32
       
+           //external
+        seg_sram 
+        {
+            INPUT_SECTIONS( $OBJECTS(seg_sram))
+        } > seg_sram
+        
+        seg_sdram
+        {
+            INPUT_SECTIONS( $OBJECTS(seg_sdram))  
+        } > seg_sdram
+        
    } /* SECTIONS */
 } /* p0 */
 

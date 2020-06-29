@@ -49,10 +49,20 @@ double simplp (unsigned int *x, unsigned int *y,
     /*Set the Processing Active Semaphore before starting processing*/
     isProcessing = 1;
 
+//	for(i=0, j=0;i<NUM_SAMPLES;i+=2)
+//	{
+//		audio_processing(block_ptr+i, 0);
+//	}
+
 	for(i=0, j=0;i<NUM_SAMPLES;i+=2)
 	{
-		audio_processing(block_ptr+i, 0);
+		int res=reverb(*(block_ptr+i)<<8, *(block_ptr+i+1)<<8);
+		*(block_ptr+i)=res>>8;
+		*(block_ptr+i+1)=res>>8;
 	}
+
+
+
 
 
 //	for(i=0, j=0;i<NUM_SAMPLES;i+=2)

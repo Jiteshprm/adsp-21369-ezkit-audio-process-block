@@ -41,6 +41,7 @@ int main(void)
 
     init_audio_processing();
     init_uart();
+    init_reverb();
     adi_int_InstallHandler(ADI_CID_P6I,(ADI_INT_HANDLER_PTR )TalkThroughISR,0,true);
 
     adi_int_InstallHandler(ADI_CID_IRQ0I,(ADI_INT_HANDLER_PTR )Irq0ISR,0,true);

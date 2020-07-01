@@ -8,7 +8,7 @@
 "src/initSRU.doj"
 "src/irqprocess.doj"
 "src/main.doj"
-"src/reverb.doj"
+"src/reverb_schroeder_stereo.doj"
 "system/adi_initialize.doj"
 "system/startup_ldf/app_IVT.doj"
 "system/startup_ldf/app_heaptab.doj"

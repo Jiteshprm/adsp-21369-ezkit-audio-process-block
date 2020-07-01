@@ -14,7 +14,7 @@ C_SRCS += \
 ../src/initSRU.c \
 ../src/irqprocess.c \
 ../src/main.c \
-../src/reverb.c 
+../src/reverb_schroeder_stereo.c 
 
 SRC_OBJS += \
 ./src/SPORTisr.doj \
@@ -27,7 +27,7 @@ SRC_OBJS += \
 ./src/initSRU.doj \
 ./src/irqprocess.doj \
 ./src/main.doj \
-./src/reverb.doj 
+./src/reverb_schroeder_stereo.doj 
 
 C_DEPS += \
 ./src/SPORTisr.d \
@@ -40,7 +40,7 @@ C_DEPS += \
 ./src/initSRU.d \
 ./src/irqprocess.d \
 ./src/main.d \
-./src/reverb.d 
+./src/reverb_schroeder_stereo.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -114,10 +114,10 @@ src/main.doj: ../src/main.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-src/reverb.doj: ../src/reverb.c
+src/reverb_schroeder_stereo.doj: ../src/reverb_schroeder_stereo.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: CrossCore SHARC C/C++ Compiler'
-	cc21k -c -file-attr ProjectName="adsp-21369-ezkit-audio-process-block" -proc ADSP-21369 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -DCORE0 @includes-ed8b5e3b8cf81530e704911d16916579.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -gnu-style-dependencies -MD -Mo "src/reverb.d" -o "$@" "$<"
+	cc21k -c -file-attr ProjectName="adsp-21369-ezkit-audio-process-block" -proc ADSP-21369 -flags-compiler --no_wrap_diagnostics -si-revision any -g -D_DEBUG -DCORE0 @includes-ed8b5e3b8cf81530e704911d16916579.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -gnu-style-dependencies -MD -Mo "src/reverb_schroeder_stereo.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

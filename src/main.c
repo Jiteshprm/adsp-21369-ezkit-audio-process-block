@@ -20,7 +20,7 @@
 
 int main(void)
 {
-	unsigned int count1=1234;
+
 	int count=0;
 	/* Initialize managed drivers and/or services at the start of main(). */
 	adi_initComponents();
@@ -79,12 +79,12 @@ int main(void)
 						int i,j;
 						char sample[10];
 						//char *msg= (char*)calloc(NUM_SAMPLES*10, sizeof(char));
-					    for(i=0, j=0;i<NUM_SAMPLES;i+=2)
-					    {
-					    	sprintf(sample, "-%08x", src_pointer[int_cntr][i]);
-					    	xmitUARTmessage(sample,strlen(sample)*sizeof(char));
-					    	//strncat(msg, sample, strlen(sample)*sizeof(char));
-					    }
+//					    for(i=0, j=0;i<NUM_SAMPLES;i+=2)
+//					    {
+//					    	sprintf(sample, "-%08x", src_pointer[int_cntr][i]);
+//					    	xmitUARTmessage(sample,strlen(sample)*sizeof(char));
+//					    	//strncat(msg, sample, strlen(sample)*sizeof(char));
+//					    }
 					    //char msg[] = {"\n\r ------- \n\r"};
 					    //xmitUARTmessage(msg,strlen(msg)*sizeof(char));
 					    //strcat(msg, "\n\r\0");

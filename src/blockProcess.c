@@ -54,14 +54,17 @@ double simplp (unsigned int *x, unsigned int *y,
 //		audio_processing(block_ptr+i, 0);
 //	}
 
+//	for(i=0, j=0;i<NUM_SAMPLES;i+=2)
+//	{
+//		int res=reverb_to_mono(*(block_ptr+i)<<8, *(block_ptr+i+1)<<8);
+//		*(block_ptr+i)=res>>8;
+//		*(block_ptr+i+1)=res>>8;
+//	}
+
 	for(i=0, j=0;i<NUM_SAMPLES;i+=2)
 	{
-		int res=reverb(*(block_ptr+i)<<8, *(block_ptr+i+1)<<8);
-		*(block_ptr+i)=res>>8;
-		*(block_ptr+i+1)=res>>8;
+		reverb_schroeder_stereo(block_ptr+i, 0);
 	}
-
-
 
 
 

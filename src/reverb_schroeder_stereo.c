@@ -21,7 +21,7 @@
 //define wet 0.0 <-> 1.0
 double wet = 0.2f;
 //define time delay 0.0 <-> 1.0 (max)
-double time = 0.2f;
+double time = 0.4f;
 
 //define pointer limits = delay time
 int cf0_lim, cf1_lim, cf2_lim, cf3_lim, ap0_lim, ap1_lim, ap2_lim;

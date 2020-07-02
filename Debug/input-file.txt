@@ -1,6 +1,7 @@
 "src/SPORTisr.doj"
 "src/UART_Echo_Back.doj"
 "src/audio_processing.doj"
+"src/biquad.doj"
 "src/blockProcess.doj"
 "src/init1835viaSPI.doj"
 "src/initPLL_SDRAM.doj"

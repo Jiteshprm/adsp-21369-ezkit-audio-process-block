@@ -17,6 +17,7 @@
 
 #include "ADDS_21369_EzKit.h"
 #include "audio_processing.h"
+#include "biquad.h"
 
 int main(void)
 {
@@ -42,6 +43,8 @@ int main(void)
     init_audio_processing();
     init_uart();
     init_reverb();
+    init_biquad();
+
     adi_int_InstallHandler(ADI_CID_P6I,(ADI_INT_HANDLER_PTR )TalkThroughISR,0,true);
 
     adi_int_InstallHandler(ADI_CID_IRQ0I,(ADI_INT_HANDLER_PTR )Irq0ISR,0,true);

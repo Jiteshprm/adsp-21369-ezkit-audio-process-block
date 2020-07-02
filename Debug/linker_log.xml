@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.9.2/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Wed Jul  1 03:00:28 2020
+<DOCUMENT gen_time='Thu Jul  2 01:05:26 2020
 '>
-<MSG id='033DCBD0' mid='li1021' type='Error' >
+<MSG id='03378A08' mid='li1021' type='Error' >
 <TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
-        'reverb_right [_reverb_right]' referenced from 'src\blockProcess.doj']]></TEXT>
+        'biquad1 [_biquad1]' referenced from 'src\biquad.doj']]></TEXT>
 </MSG>
 </DOCUMENT>

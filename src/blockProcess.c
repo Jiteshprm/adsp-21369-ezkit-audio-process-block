@@ -61,12 +61,17 @@ double simplp (unsigned int *x, unsigned int *y,
 //		*(block_ptr+i+1)=res>>8;
 //	}
 
+
+
 	for(i=0, j=0;i<NUM_SAMPLES;i+=2)
 	{
-		reverb_schroeder_stereo(block_ptr+i, 0);
+		biquad_sample(block_ptr+i);
 	}
 
-
+//		for(i=0, j=0;i<NUM_SAMPLES;i+=2)
+//		{
+//			reverb_schroeder_stereo(block_ptr+i, 0);
+//		}
 
 //	for(i=0, j=0;i<NUM_SAMPLES;i+=2)
 //	{
